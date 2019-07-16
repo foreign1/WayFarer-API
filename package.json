@@ -1,0 +1,51 @@
+{
+  "name": "WayFarer-API",
+  "version": "1.0.0",
+  "description": "A public bus transportation booking server back-end API",
+  "main": "index.js",
+  "scripts": {
+    "dev": "DEBUG=dev nodemon ./src/index.js",
+    "test-init": "jasmine.js init",
+    "test": "NODE_ENV=test jasmine --reporter=jasmine-console-reporter",
+    "test:coveralls": "istanbul cover jasmine-node --captureExceptions spec/ && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
+    "lint": "eslint '**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foreign1/WayFarer-API.git"
+  },
+  "keywords": [
+    "node",
+    "rest",
+    "api"
+  ],
+  "author": "John Jenyo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/foreign1/WayFarer-API/issues"
+  },
+  "homepage": "https://github.com/foreign1/WayFarer-API#readme",
+  "devDependencies": {
+    "coveralls": "^3.0.4",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.18.0",
+    "istanbul": "^1.1.0-alpha.1",
+    "jasmine": "^3.4.0",
+    "jasmine-console-reporter": "^3.1.0",
+    "jasmine-node": "^3.0.0",
+    "node-mocks-http": "^1.7.6",
+    "nodemon": "^1.19.1",
+    "nyc": "^14.1.1",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "debug": "^4.1.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^7.11.0"
+  }
+}
