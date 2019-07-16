@@ -1,0 +1,5 @@
+node_modules
+.env
+.coveralls.yml
+.package-lock.json
+.nyc_output/
