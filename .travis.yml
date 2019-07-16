@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "stable"
+install:
+  - npm install
+cache:
+  directories:
+    - "node_modules"
+env:
+  - TEST_DATABASE_URL=postgres://postgres:password@localhost:5432/wayfarer_test_db
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database wayfarer_test_db;' -U postgres
+  - psql -c "ALTER USER postgres PASSWORD 'password'";
+  - sh ./setup-test-db.sh
+
+script:
+  - npm run test:coveralls
+
+notifications:
+  - email: flase
