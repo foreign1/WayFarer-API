@@ -1,2 +1,4 @@
-# WayFarer-API
-WayFarer is a public bus transportation booking server.
+# WayFarer-API 
+
+
+A public bus transportation booking server back-end API

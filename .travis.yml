@@ -1,0 +1,32 @@
+language: node_js
+
+node_js:
+  - "stable"
+
+install:
+  - npm install
+
+cache:
+  directories:
+    - "node_modules"
+
+env:
+  global:
+    - NODE_ENV=test
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database wayfarer_test_db;' -U postgres
+  - psql -c "ALTER USER postgres PASSWORD 'password'";
+  - sh ./setup-test-db.sh
+
+script:
+  - npm test
+
+after_success:
+  - npm run test:coverage
+
+notifications:
+  - email: flase
